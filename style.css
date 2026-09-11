@@ -1,3 +1,7 @@
+html {
+	scroll-behavior: smooth;
+}
+
 /* Remove the browser's default spacing around the page. */
 body {
 	margin: 0;
