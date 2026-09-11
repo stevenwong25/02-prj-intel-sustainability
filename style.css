@@ -2,6 +2,7 @@
 body {
 	margin: 0;
 	font-family: Arial, sans-serif;
+  background-color: #f5f7f9;
 }
 
 /* Create the hero area with a light blue to dark blue gradient. */
@@ -76,6 +77,7 @@ section {
 	display: flex;
 	gap: 24px;
 	overflow-x: auto;
+	scroll-snap-type: x mandatory;
 	padding: 32px 4px 16px;
   margin: 0 140px;
 }
@@ -83,12 +85,25 @@ section {
 /* Give every timeline card the same dimensions and spacing. */
 .timeline-cards > div {
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	scroll-snap-align: start;
 	width: calc((100% - 72px) / 4);
-	height: 320px;
+	height: auto;
+	aspect-ratio: 1 / 1;
 	flex: 0 0 calc((100% - 72px) / 4);
-	padding: 24px;
+	padding: 16px;
+	overflow: hidden;
 	border: 1px solid #d7e3ee;
 	background-color: #f5f9fc;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-cards > div:hover, 
+.timeline-cards > div:focus {
+	transform: translateY(-6px) scale(1.02);
+	box-shadow: 0 10px 20px rgba(3, 54, 109, 0.18);
 }
 
 section h2,
@@ -96,8 +111,43 @@ section h3 {
 	margin-top: 0;
 }
 
+.timeline-cards h2 {
+	color: #1769aa;
+}
+
+.timeline-cards img {
+	width: 100%;
+	flex: 1;
+	min-height: 0;
+	margin-top: 12px;
+	object-fit: cover;
+}
+
 section p {
 	line-height: 1.5;
+}
+
+/* Keep the detailed text hidden until a card is hovered. */
+.timeline-cards p {
+	position: absolute;
+	inset: 0;
+	height: 100%;
+	max-height: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 14px 20px;
+	overflow-y: auto;
+	background-color: rgba(32, 105, 159, 0.8);
+  color: white;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+	pointer-events: none;
+}
+
+.timeline-cards > div:hover p,
+.timeline-cards > div:focus p {
+	opacity: 1;
+	pointer-events: auto;
 }
 
 /* Center the instruction below the timeline. */
@@ -106,30 +156,79 @@ body > p {
 	margin-bottom: 48px;
 }
 
-/* Make the heading fit comfortably on smaller screens. */
-@media (max-width: 600px) {
+/* Adjust the hero and timeline for tablets. */
+@media (max-width: 1024px) {
 	header {
-		min-height: 80vh;
+		min-height: 65vh;
+		padding: 48px 24px;
 	}
 
 	header h1 {
-		font-size: 36px;
+		font-size: 42px;
 	}
 
 	header p {
 		font-size: 18px;
 	}
 
+	.timeline-cards {
+		flex-direction: column;
+		align-items: center;
+		margin: 0 24px;
+		gap: 16px;
+		overflow-x: visible;
+	}
+
+	.timeline-cards > div {
+		width: min(100%, 520px);
+		flex-basis: auto;
+	}
+
 	.timeline-heading {
 		font-size: 30px;
 	}
 
-	.timeline-cards > div {
-		width: 100%;
-		flex-basis: 100%;
+	body > p {
+		display: none;
+	}
+}
+
+/* Make the layout comfortable on phones. */
+@media (max-width: 600px) {
+	header {
+		min-height: 75vh;
+		padding: 40px 18px;
+	}
+
+	header img {
+		width: 160px;
+	}
+
+	header h1 {
+		font-size: 34px;
+	}
+
+	header p {
+		font-size: 16px;
+	}
+
+	section {
+		padding: 36px 12px;
+	}
+
+	.timeline-heading {
+		font-size: 26px;
+	}
+
+	.timeline-cards {
+		margin: 0;
+		gap: 16px;
+		padding: 24px 4px 12px;
 	}
 
 	.timeline-cards > div {
-		width: 280px;
+		width: 100%;
+		flex-basis: auto;
+		padding: 14px;
 	}
 }
