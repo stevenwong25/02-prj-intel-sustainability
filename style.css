@@ -19,12 +19,12 @@ header {
 
 /* Keep the hero content easy to read on wide screens. */
 header > div {
-	max-width: 760px;
+	max-width: 550px;
 }
 
 /* Resize the Intel logo and keep it above the text. */
 header img {
-	width: 180px;
+	width: 200px;
 	height: auto;
 	margin-bottom: 28px;
 }
@@ -32,12 +32,78 @@ header img {
 header h1 {
 	margin: 0 0 18px;
 	font-size: 48px;
+	text-transform: uppercase;
+}
+
+header h1::after {
+	content: "";
+	display: block;
+	width: 48px;
+	height: 3px;
+	margin: 16px auto 0;
+	background-color: white;
 }
 
 header p {
 	margin: 0;
 	font-size: 20px;
 	line-height: 1.6;
+}
+
+/* Stack the heading above the horizontally scrolling card row. */
+section {
+	padding: 48px 24px;
+}
+
+/* Center the timeline heading above all of the cards. */
+.timeline-heading {
+	margin: 0;
+	font-size: 32px;
+	text-align: center;
+}
+
+.timeline-heading::after {
+	content: "";
+	display: block;
+	width: 90px;
+	height: 3px;
+	margin: 12px auto 0;
+	background-color: #1882d7;
+}
+
+/* Keep the cards in one row and allow horizontal scrolling. */
+.timeline-cards {
+	display: flex;
+	gap: 24px;
+	overflow-x: auto;
+	padding: 32px 4px 16px;
+  margin: 0 140px;
+}
+
+/* Give every timeline card the same dimensions and spacing. */
+.timeline-cards > div {
+	box-sizing: border-box;
+	width: calc((100% - 72px) / 4);
+	height: 320px;
+	flex: 0 0 calc((100% - 72px) / 4);
+	padding: 24px;
+	border: 1px solid #d7e3ee;
+	background-color: #f5f9fc;
+}
+
+section h2,
+section h3 {
+	margin-top: 0;
+}
+
+section p {
+	line-height: 1.5;
+}
+
+/* Center the instruction below the timeline. */
+body > p {
+	text-align: center;
+	margin-bottom: 48px;
 }
 
 /* Make the heading fit comfortably on smaller screens. */
@@ -52,5 +118,18 @@ header p {
 
 	header p {
 		font-size: 18px;
+	}
+
+	.timeline-heading {
+		font-size: 30px;
+	}
+
+	.timeline-cards > div {
+		width: 100%;
+		flex-basis: 100%;
+	}
+
+	.timeline-cards > div {
+		width: 280px;
 	}
 }
