@@ -1,1 +1,56 @@
-/* Add your CSS here */
+/* Remove the browser's default spacing around the page. */
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+}
+
+/* Create the hero area with a light blue to dark blue gradient. */
+header {
+	min-height: 70vh;
+	padding: 60px 24px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
+	background: linear-gradient(90deg, #3d9bd1, #03366d);
+}
+
+/* Keep the hero content easy to read on wide screens. */
+header > div {
+	max-width: 760px;
+}
+
+/* Resize the Intel logo and keep it above the text. */
+header img {
+	width: 180px;
+	height: auto;
+	margin-bottom: 28px;
+}
+
+header h1 {
+	margin: 0 0 18px;
+	font-size: 48px;
+}
+
+header p {
+	margin: 0;
+	font-size: 20px;
+	line-height: 1.6;
+}
+
+/* Make the heading fit comfortably on smaller screens. */
+@media (max-width: 600px) {
+	header {
+		min-height: 80vh;
+	}
+
+	header h1 {
+		font-size: 36px;
+	}
+
+	header p {
+		font-size: 18px;
+	}
+}
