@@ -115,7 +115,7 @@ section h3 {
 	margin-top: 0;
 }
 
-.timeline-cards h2 {
+.timeline-cards h2{
 	color: #1769aa;
 }
 
@@ -188,8 +188,26 @@ body > p {
 	}
 
 	.timeline-cards > div {
-		width: min(100%, 520px);
+		width: min(100%, 700px);
+		aspect-ratio: 16 / 10;
 		flex-basis: auto;
+	}
+
+	.timeline-cards img {
+		object-fit: contain;
+    object-position: left center;
+	}
+
+	.timeline-cards h2 {
+		font-size: 28px;
+	}
+
+	.timeline-cards h3 {
+		font-size: 24px;
+	}
+
+	.timeline-cards p {
+		font-size: 26px;
 	}
 
 	.timeline-heading {
@@ -254,5 +272,17 @@ body > p {
 		width: 100%;
 		flex-basis: auto;
 		padding: 14px;
+	}
+
+	.timeline-cards h2 {
+		font-size: 24px;
+	}
+
+	.timeline-cards h3 {
+		font-size: 20px;
+	}
+
+	.timeline-cards p {
+		font-size: 18px;
 	}
 }
