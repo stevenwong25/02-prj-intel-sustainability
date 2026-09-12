@@ -115,8 +115,13 @@ section h3 {
 	margin-top: 0;
 }
 
-.timeline-cards h2 {
+.timeline-cards h2{
 	color: #1769aa;
+  font-size: 28px;
+}
+
+.timeline-cards h3 {
+  font-size: 24px;
 }
 
 .timeline-cards img {
@@ -134,6 +139,7 @@ section p {
 /* Keep the detailed text hidden until a card is hovered. */
 .timeline-cards p {
 	position: absolute;
+  font-size: 26px;
 	inset: 0;
 	height: 100%;
 	max-height: none;
@@ -188,8 +194,14 @@ body > p {
 	}
 
 	.timeline-cards > div {
-		width: min(100%, 520px);
+		width: min(100%, 700px);
+		aspect-ratio: 16 / 10;
 		flex-basis: auto;
+	}
+
+	.timeline-cards img {
+		object-fit: contain;
+    object-position: left center;
 	}
 
 	.timeline-heading {
