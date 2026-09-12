@@ -276,13 +276,17 @@ body > p {
 
 	.timeline-cards h2 {
 		font-size: 24px;
+    margin-bottom: 6px;
 	}
 
 	.timeline-cards h3 {
 		font-size: 20px;
+    margin-bottom: 0;
 	}
 
 	.timeline-cards p {
 		font-size: 18px;
 	}
+  
+
 }
